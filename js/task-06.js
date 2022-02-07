@@ -36,46 +36,47 @@ const inputDataA = textInput.dataset.length; // ПОЛУЧАЕТЬСЯ СТРО�
 // console.log(`textInput.dataset`,textInput.dataset)
 
 
-textInput.addEventListener("blur", onInputBlur)
+// textInput.addEventListener("blur", onInputBlur)
 
 
-function onInputBlur (event) {
-// в переменной textInputContentLength длина вписанных букв
-  const textInputContentLength = textInput.value.length;
-  console.log(textInputContentLength)
-  if (textInputContentLength !== inputData) {
-    // replaceClasses("invalid");
-    textInput.classList.add('invalid');
-    textInput.classList.remove('valid');
-    // return;
-  } else {
-// //   replaceClasses("valid", "invalid");
-textInput.classList.remove('invalid');
-textInput.classList.add('valid');}
-};
+// function onInputBlur (event) {
+// // в переменной textInputContentLength длина вписанных букв
+//   const textInputContentLength = textInput.value.length;
+//   console.log(textInputContentLength)
+//   if (textInputContentLength !== inputData) {
+//     // replaceClasses("invalid");
+//     textInput.classList.add('invalid');
+//     textInput.classList.remove('valid');
+//     // return;
+//   } else {
+// // //   replaceClasses("valid", "invalid");
+// textInput.classList.remove('invalid');
+// textInput.classList.add('valid');}
+// };
 
 
 ///////////////////////////////////////////////////////////////////
 // ВТОРОЙ ВАРИАНТ
 
-// textInput.addEventListener("blur", onInputBlur)
-// function onInputBlur (event) {
-//   // в переменной textInputContentLength длина вписанных букв
-//     const textInputContentLength = textInput.value.length;
-//     console.log(textInputContentLength)
-//     if (textInputContentLength !== inputData) {
-//       replaceClasses("invalid", "valid");
-//       // textInput.classList.add('invalid');
-//       // textInput.classList.remove('valid');
-//       // return;
-//     } else {
-//     replaceClasses("valid", "invalid");
-//   // textInput.classList.remove('invalid');
-//   // textInput.classList.add('valid');}
-//   }; 
-// }
-// // МОЖНО ВЫНЕСТИ КЛАССЫ В ФУНКЦИЮ , И ВЫЗВАТЬ ЕЕ
-// const replaceClasses = (classToAdd, classToRemove) => {
-//   textInput.classList.remove(classToRemove);
-//   textInput.classList.add(classToAdd);
-// };
+textInput.addEventListener("blur", onInputBlur)
+function onInputBlur (event) {
+  // в переменной textInputContentLength длина вписанных букв
+    const textInputContentLength = textInput.value.length;
+    console.log(textInputContentLength)
+    if (textInputContentLength === inputData) {
+    
+      replaceClasses("valid", "invalid");
+      // textInput.classList.add('invalid');
+      // textInput.classList.remove('valid');
+      // return;
+    } else {
+      replaceClasses("invalid", "valid");
+  // textInput.classList.remove('invalid');
+  // textInput.classList.add('valid');}
+  }; 
+}
+// МОЖНО ВЫНЕСТИ КЛАССЫ В ФУНКЦИЮ , И ВЫЗВАТЬ ЕЕ
+const replaceClasses = (classToAdd, classToRemove) => {
+  textInput.classList.remove(classToRemove);
+  textInput.classList.add(classToAdd);
+};
